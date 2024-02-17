@@ -5,6 +5,7 @@ import org.apache.pekko.actor.typed.scaladsl.Behaviors
 import org.apache.pekko.http.scaladsl.Http
 import org.apache.pekko.http.scaladsl.model._
 import org.apache.pekko.http.scaladsl.server.Directives._
+import scalikejdbc.ConnectionPool
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -13,6 +14,9 @@ object Main extends App {
     ActorSystem(Behaviors.empty, "with-kakeibo-system")
   implicit val executionContext: ExecutionContextExecutor =
     system.executionContext
+
+  Class.forName("com.mysql.cj.jdbc.Driver")
+  ConnectionPool.singleton(s"jdbc:mysql://127.0.0.1:3306/with_kakeibo", "root", "passwd")
 
   val route =
     path("hello") {

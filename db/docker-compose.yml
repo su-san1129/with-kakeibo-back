@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: with-kakeibo-mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: passwd
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - ./conf:/etc/mysql/conf.d/my.cnf
+      - ./volumes/mysql:/var/lib/mysql

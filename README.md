@@ -3,5 +3,5 @@
 
 ## LINK
 ### [with_kakeibo](https://github.com/su-san1129/with_kakeibo)
-プログラミングスクール卒業時に作成したもの
+プログラミングスクール卒業時に作成したもの <br>
 愛着があり、たまにライブラリのアップデートを行っている.
